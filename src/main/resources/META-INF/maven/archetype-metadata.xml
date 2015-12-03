@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+	xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+	name="gwt-modular-webapp"
+	xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<requiredProperties>
+		<requiredProperty key="javaversion">
+			<defaultValue>1.7</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="tomcatport">
+			<defaultValue>8080</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+
+	<!-- When a project is imported into eclipse and the said project contains
+		exported launch configurations, eclipse scans the whole project structure
+		looking for the exported launches to restore them automatically into the
+		workspace. When eclipse sees a launch file inside the project it automatically
+		load the launch configuration into the workspace and destroys the file.
+		Ironically when making the present archetype using eclipse, the same behavior
+		was experienced and the provided launches in the archetype got loaded by
+		eclipse. By appending a fake extension into the launch file name we prevent
+		eclipse from detecting the launch files in our archetype project. Using
+		an ant script it is then possible to remove the appended fake extension
+		and package the archetype with clean launch files. -->
+	<fileSets>
+		<fileSet filtered="true" packaged="false" encoding="UTF-8">
+			<directory>__rootArtifactId__-launch</directory>
+			<includes>
+				<include>*.launch</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<modules>
+		<module id="${rootArtifactId}-client" dir="__rootArtifactId__-client"
+			name="${rootArtifactId}-client">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.css</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>*.properties</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}-shared" dir="__rootArtifactId__-shared"
+			name="${rootArtifactId}-shared">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="${rootArtifactId}-server" dir="__rootArtifactId__-server"
+			name="${rootArtifactId}-server">
+			<fileSets>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/webapp</directory>
+					<includes>
+						<include>**/*.xml</include>
+						<include>**/*.html</include>
+					</includes>
+				</fileSet>
+				<fileSet encoding="UTF-8">
+					<directory>src/main/webapp</directory>
+					<includes>
+						<include>**/*.ico</include>
+						<include>**/*.css</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/tomcatconf</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+	</modules>
+</archetype-descriptor>

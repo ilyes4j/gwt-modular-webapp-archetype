@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The MIT License (MIT) Copyright (c) 2015 Mohamed Ilyes Dimassi Permission 
+	is hereby granted, free of charge, to any person obtaining a copy of this 
+	software and associated documentation files (the "Software"), to deal in 
+	the Software without restriction, including without limitation the rights 
+	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+	copies of the Software, and to permit persons to whom the Software is furnished 
+	to do so, subject to the following conditions: The above copyright notice 
+	and this permission notice shall be included in all copies or substantial 
+	portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY 
+	OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES 
+	OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, 
+	DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+	ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+	DEALINGS IN THE SOFTWARE. --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.yourcompany</groupId>
+	<artifactId>yourproject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Using Maven version -->
+		<mavenVersion>3.0</mavenVersion>
+
+		<!-- Using GWT version -->
+		<gwt.version>2.7.0</gwt.version>
+
+		<!-- Using JAVA JDK version -->
+		<java.version>1.7</java.version>
+
+		<!-- Using Maven Compiler Plugin version -->
+		<compilerplugin.version>3.3</compilerplugin.version>
+
+		<!-- Using Maven War Plugin version -->
+		<warplugin.version>2.6</warplugin.version>
+
+		<!-- Using Maven Build Helper Plugin version -->
+		<buildhelperplugin.version>1.9.1</buildhelperplugin.version>
+
+		<!-- Using Maven Source Plugin version -->
+		<sourceplugin.version>2.4</sourceplugin.version>
+
+		<!-- Using Tomcat7 plugin version -->
+		<tomcat7plugin.version>2.2</tomcat7plugin.version>
+
+		<!-- Using Ant Run plugin version -->
+		<antrunplugin.version>1.7</antrunplugin.version>
+
+		<!-- centralizing the server port since it is used by both the tomcat7:run 
+			and the gwt:run goals -->
+		<tomcat.run.port>8080</tomcat.run.port>
+	</properties>
+
+	<prerequisites>
+		<maven>${mavenVersion}</maven>
+	</prerequisites>
+
+	<build>
+		<!-- In order to mutualize plugins configuration across modules, common 
+			plugin parameters are set here. -->
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${compilerplugin.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>build-helper-maven-plugin</artifactId>
+					<version>${buildhelperplugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>gwt-maven-plugin</artifactId>
+					<version>${gwt.version}</version>
+					<configuration>
+						<strict>true</strict>
+						<sourceLevel>${java.version}</sourceLevel>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>${warplugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.tomcat.maven</groupId>
+					<artifactId>tomcat7-maven-plugin</artifactId>
+					<version>${tomcat7plugin.version}</version>
+					<configuration>
+						<!--Always skip running Tomcat unless explicitely indicated during 
+							the build. The tomcat plugin is not meant to be launched from the CLI outside 
+							maven build since the server is ${basedir} sensitive. -->
+						<skip>true</skip>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${antrunplugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+  <modules>
+    <module>yourproject-client</module>
+    <module>yourproject-shared</module>
+    <module>yourproject-server</module>
+  </modules>
+</project>
