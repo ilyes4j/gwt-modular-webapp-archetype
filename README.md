@@ -1,4 +1,4 @@
-![GWT](assets/gwt.svg)
+![GWT](http://ilyes4j.github.io/gwt-modular-webapp-archetype/assets/gwt.svg)
 
 # gwt-modular-webapp-archetype
 > A maven archetype that generates multi-module GWT projects with full [Eclipse IDE](https://eclipse.org) support.
