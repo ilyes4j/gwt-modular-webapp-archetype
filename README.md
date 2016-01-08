@@ -26,7 +26,7 @@ The resulting project is structured as follows :
 ```
 
 Folder|Description
-:-|:-
+:--|:--
 **[project-name]**|The **Parent module** under which all related Maven modules are aggregated.
 **[project-name]**-_client_ |The **Client module** contains JAVA code to be compliled into HTML/CSS/JS by the GWT compiler.
 **[project-name]**-_launch_ |The **Launch folder** contains Eclipse **.launch** files to make working on your project inside Eclipse as easy as possible.
