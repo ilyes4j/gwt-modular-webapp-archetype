@@ -1,0 +1,5 @@
+language: java
+
+install: mvn verify -Darchetype.test.skip=true
+
+script: mvn clean verify
