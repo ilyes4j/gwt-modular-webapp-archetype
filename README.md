@@ -75,30 +75,41 @@ $ mvn archetype:generate ^
 Congratulations ! Your project is ready for use under **yourproject** directory. The resulting project is structured as follows :
 
 <table>
-<tr>
-  <th>Folder</td>
-  <th>Description</td>
-</tr>
- <tr>
-   <td>**yourproject**</td>
-   <td>The **Parent module** under which all related Maven modules are aggregated.</td>
- </tr>
- <tr>
-   <td>**yourproject**-_client_</td>
-   <td>The **Client module** contains JAVA code to be compiled into HTML/CSS/JS by the GWT compiler.</td>
- </tr>
- <tr>
-   <td>**yourproject**-_launch_</td>
-   <td>The **Launch folder** contains Eclipse **.launch** files to make working on your project inside Eclipse as easy as possible.</td>
- </tr>
- <tr>
-   <td>**yourproject**-_server_</td>
-   <td>The **Server module** contains the server side code and resources that are not compiled by the GWT compiler.</td>
- </tr>
- <tr>
-   <td>**yourproject**-_shared_</td>
-   <td>The **Shared module** contains model classes exchanged between the client and the server.</td>
- </tr>
+	<tr>
+		<th>Folder</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><b>yourproject</b></td>
+		<td>The <b>Parent module</b> under which all related Maven
+			modules are aggregated.
+		</td>
+	</tr>
+	<tr>
+		<td><b>yourproject</b>-<i>client</i></td>
+		<td>The <b>Client module</b> contains JAVA code to be compiled
+			into HTML/CSS/JS by the GWT compiler.
+		</td>
+	</tr>
+	<tr>
+		<td><b>yourproject</b>-<i>launch</i></td>
+		<td>The <b>Launch folder</b> contains Eclipse <b>.launch</b>
+			files to make working on your project inside Eclipse as easy as
+			possible.
+		</td>
+	</tr>
+	<tr>
+		<td><b>yourproject</b>-<i>server</i></td>
+		<td>The <b>Server module</b> contains the server side code and
+			resources that are not compiled by the GWT compiler.
+		</td>
+	</tr>
+	<tr>
+		<td><b>yourproject</b>-<i>shared</i></td>
+		<td>The <b>Shared module</b> contains model classes exchanged
+			between the client and the server.
+		</td>
+	</tr>
 </table>
 
 
