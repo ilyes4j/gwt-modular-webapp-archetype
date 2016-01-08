@@ -99,12 +99,12 @@ Two servers are needed to run the application in development mode. [**Tomcat**](
 ##### a. Run the server module
 In the first terminal go to **yourproject** directory and issue the following command
 ```
-$ mvn package -pl gwtproject-server -am -Pdebugserver
+$ mvn package -pl yourproject-server -am -Pdebugserver
 ```
 ##### b. Run the client module
 In a second terminal go to **yourproject** directory and issue the following command
 ```
-$ mvn package -pl gwtproject-client -am -Pdebugclient
+$ mvn package -pl yourproject-client -am -Pdebugclient
 ```
 ##### c. Launch the application
 Launch the application by
