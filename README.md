@@ -13,26 +13,6 @@
 * Rewritten GWT Starter code.
 * Automatic [Asynchronous Interfaces](http://www.gwtproject.org/doc/latest/tutorial/RPC.html) Generation.
 
-The resulting project is structured as follows :
-
- * **[project-name]**
-  * **[project-name]**-_client_
-  * **[project-name]**-_launch_
-  * **[project-name]**-_server_
-  * **[project-name]**-_shared_
-
-```
-[project-name] is the name that you chose for the project to be generated.
-```
-
-Folder|Description
-:--|:--
-**[project-name]**|The **Parent module** under which all related Maven modules are aggregated.
-**[project-name]**-_client_ |The **Client module** contains JAVA code to be compliled into HTML/CSS/JS by the GWT compiler.
-**[project-name]**-_launch_ |The **Launch folder** contains Eclipse **.launch** files to make working on your project inside Eclipse as easy as possible.
-**[project-name]**-_server_ |The **Server module** contains the server side code and resources that are not compiled by the GWT compiler.
-**[project-name]**-_shared_ |The **Shared module** contains model classes exchanged between the client and the server.
-
 ## Requirements
 * [JDK 1.7](http://www.oracle.com/technetwork/es/java/javase/downloads/jdk7-downloads-1880260.html) or [JDK 1.6](http://www.oracle.com/technetwork/java/javase/downloads/java-archive-downloads-javase6-419409.html)
 
@@ -75,7 +55,7 @@ $ mvn archetype:generate \
   -Dtomcatport=8080
 ```
 
-* On a Windows based systems :
+* On a Windows based system :
 
 ```shell
 $ mvn archetype:generate ^
@@ -92,10 +72,38 @@ $ mvn archetype:generate ^
   -Dtomcatport=8080
 ```
 
-Congratulations ! Your project is ready for use under **yourproject** directory.
+Congratulations ! Your project is ready for use under **yourproject** directory. The resulting project is structured as follows :
+
+<table>
+<tr>
+  <th>Folder</td>
+  <th>Description</td>
+</tr>
+ <tr>
+   <td>**yourproject**</td>
+   <td>The **Parent module** under which all related Maven modules are aggregated.</td>
+ </tr>
+ <tr>
+   <td>**yourproject**-_client_</td>
+   <td>The **Client module** contains JAVA code to be compiled into HTML/CSS/JS by the GWT compiler.</td>
+ </tr>
+ <tr>
+   <td>**yourproject**-_launch_</td>
+   <td>The **Launch folder** contains Eclipse **.launch** files to make working on your project inside Eclipse as easy as possible.</td>
+ </tr>
+ <tr>
+   <td>**yourproject**-_server_</td>
+   <td>The **Server module** contains the server side code and resources that are not compiled by the GWT compiler.</td>
+ </tr>
+ <tr>
+   <td>**yourproject**-_shared_</td>
+   <td>The **Shared module** contains model classes exchanged between the client and the server.</td>
+ </tr>
+</table>
+
 
 ### 2. Run the project in development mode
-Two servers are needed to run the application in development mode. [**Tomcat**](http://tomcat.apache.org/) server runs the server module and [**Codeserver**](http://www.gwtproject.org/articles/superdevmode.html) using [**Jetty**](http://www.eclipse.org/jetty/) runs the client module.
+In development mode, two servers are involved to run your application. [**Tomcat**](http://tomcat.apache.org/) server runs the server module and [**Codeserver**](http://www.gwtproject.org/articles/superdevmode.html) using [**Jetty**](http://www.eclipse.org/jetty/) runs the client module. You don't have to worry about setting them up, they are shipped with the project build.
 ##### a. Run the server module
 In the first terminal go to **yourproject** directory and issue the following command
 ```
@@ -106,13 +114,12 @@ In a second terminal go to **yourproject** directory and issue the following com
 ```
 $ mvn package -pl yourproject-client -am -Pdebugclient
 ```
-##### c. Launch the application
-Launch the application by
-opening your browser at [**http://localhost:8080**](http://localhost:8080).
+##### c. Preview the application
+Preview the application by opening your browser at [**http://localhost:8080**](http://localhost:8080).
 
 > In development mode, by default, the application runs only on WebKit based browsers. In order to speed up GWT code generation, **App-dev.gwt.xml** module produces a single permutation for WebKit. This means that in development mode, the application can only run on [Chrome](https://www.google.com/intl/en/chrome/browser/desktop/) or [Safari](http://www.apple.com/safari/). It is possible to target other browsers by setting **user.agent**. The list of all possible user agents si available [Here](https://gwt.googlesource.com/gwt/+/master/user/src/com/google/gwt/useragent/UserAgent.gwt.xml).
 
->To support debugging for Firefox and Chrome, the **user.agent** property in **App-dev.gwt.xml** should be edited to :
+>To support debugging for Firefox and Chrome set **user.agent** property in **App-dev.gwt.xml** to :
 ```xml
 <set-property name="user.agent" value="gecko1_8,safari" />
 ```
@@ -122,6 +129,12 @@ To package your project for deployment, in a terminal go to **yourproject** dire
 ```
 $ mvn clean verify
 ```
+
+Your application is now packaged, ready for deployment and available here :
+```
+[project-name]/[project-name]-server/target/[project-name]-server-[version].war
+```
+
 
 ## Using the archetype with Eclipse IDE
 **gwt-modular-webapp-archetype** works perfectly with Eclipse and provides a set of launch configurations to help you manage your project.
@@ -135,10 +148,10 @@ $ mvn clean verify
 * Scroll to the **Maven** folder, choose **Maven Project**, then hit **Next**.
 
 ![](assets/project_type.png)
-* Leave the default options and hit **Next**.
+* Leave the default options for the next panel and hit **Next**.
 
 ![](assets/project_location.png)
-* Check the option **Include snapshot archetypes** and select the artifact thzt has _Group Id_=**org.zerowarning**, _Artifact Id_=**gwt-modular-webapp-archetype** and _Version_=**2.7.0-SNAPSHOT**. Then hit **Next**.
+* Check the option **Include snapshot archetypes** and select the artifact that has _Group Id_=**org.zerowarning**, _Artifact Id_=**gwt-modular-webapp-archetype** and _Version_=**2.7.0-SNAPSHOT**. Then hit **Next**.
 
 ![select_archetype](assets/select_archetype.png)
 
@@ -148,7 +161,7 @@ $ mvn clean verify
 
 Extra Parameter|Default|Description
 :-|:-:|:-
-javaversion| 1.7 | Can be **1.6** or **1.7**, any other value can lead to an undefined behavior. The chosen value must match the JDK setup for your Eclipse workspace to avoid unpleasant warnings about JDK mismatch.
+javaversion| 1.7 | Can be **1.6** or **1.7**, any other value can lead to an unexpected behavior. The chosen value must match the JDK setup for your Eclipse workspace to avoid unpleasant warnings about JDK mismatch.
 tomcatport| 8080 | When running multiple tomcat instances at the same time, please set **tomcatport** to an available port.
 
 Congratulations, you have successfully generated your project using Eclipse !
@@ -158,7 +171,7 @@ Congratulations, you have successfully generated your project using Eclipse !
 ![install_helper](assets/install_helper.png)
 
 ### 3. Run the project in development mode
-Working on the newly generated project is made easy as lunch configuration are shipped with the generated project. In the menu bar click the **debug** button to open the debug menu.
+Working on the newly generated project is made easy as lunch configurations are shipped with the generated project. In the menu bar click the **debug** button to open the debug menu.
 
 ![](assets/debug_menu.png)
 
@@ -171,11 +184,7 @@ by selecting **_[Step2]-yourproject-client-debug_**.
 opening your browser at [**http://localhost:8080**](http://localhost:8080).
 
 ### 4. Package the application
-To package your project for deployment select  **_[Step3]-yourproject-project-release_**. Your application is now packaged and ready for deployment. It is available here :
-```
-[project-name]/[project-name]-server/target/[project-name]-server-[version].war
-```
-
+To package your project for deployment select  **_[Step3]-yourproject-project-release_**.
 ## License
 
 Mohamed ilyes Dimassi, 2015. Licensed under the [MIT](https://github.com/ilyes4j/gwt-modular-webapp-archetype/blob/master/LICENSE) license.
