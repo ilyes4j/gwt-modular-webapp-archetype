@@ -1,6 +1,8 @@
 ![GWT](http://ilyes4j.github.io/gwt-modular-webapp-archetype/assets/gwt.svg)
 
-# gwt-modular-webapp-archetype [![Build Status](https://travis-ci.org/ilyes4j/gwt-modular-webapp-archetype.svg?branch=master)](https://travis-ci.org/ilyes4j/gwt-modular-webapp-archetype)
+# gwt-modular-webapp-archetype
+[![GitHub version](https://badge.fury.io/gh/ilyes4j%2Fgwt-modular-webapp-archetype.svg)](https://badge.fury.io/gh/ilyes4j%2Fgwt-modular-webapp-archetype) [![Build Status](https://travis-ci.org/ilyes4j/gwt-modular-webapp-archetype.svg?branch=master)](https://travis-ci.org/ilyes4j/gwt-modular-webapp-archetype)
+
 > A maven archetype that generates multi-module GWT projects with full [Eclipse IDE](https://eclipse.org) support.
 
 ## Introduction
