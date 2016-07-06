@@ -43,6 +43,8 @@
 		<archetypeplugin.version>2.4</archetypeplugin.version>
 
 		<antrunplugin.version>1.7</antrunplugin.version>
+		
+		<invoker.version>2.2</invoker.version>
 	</properties>
 
 	<build>
@@ -59,6 +61,13 @@
 				<plugin>
 					<artifactId>maven-archetype-plugin</artifactId>
 					<version>${archetypeplugin.version}</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.shared</groupId>
+							<artifactId>maven-invoker</artifactId>
+							<version>${invoker.version}</version>
+						</dependency>
+					</dependencies>
 					<executions>
 						<!-- This project does not provide integration tests -->
 						<execution>
@@ -81,7 +90,7 @@
 				<artifactId>maven-antrun-plugin</artifactId>
 				<version>${antrunplugin.version}</version>
 				<executions>
-					<!-- Uncover eclipse launchers by removing the *.off extension from
+					<!-- Uncover eclipse launchers by removing the *.off extension from 
 						the files' names before packaging the archetype. -->
 
 					<execution>
